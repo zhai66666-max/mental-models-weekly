@@ -198,7 +198,7 @@ def build_html(model: Dict[str, str], content: str, history: Dict[str, Any], dat
     emoji = cat_emoji.get(model["category"], "💡")
     color = cat_color.get(model["category"], "#6b7280")
 
-    week = history.get("week", 0) + 1
+    week = history.get("week", 1)
 
     # 解析内容段
     sections: Dict[str, str] = {}
