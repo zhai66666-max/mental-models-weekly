@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-思维格栅周报 — 每周一个经典思维模型深度拆解
-每周一 7:00 AM（北京时间）自动生成并邮件推送。
+思维格栅日报 — 每天一个经典思维模型深度拆解
+每天 7:00 AM（北京时间）自动生成并邮件推送。
 DeepSeek 深度解读 + 温故知新复习模块。
 """
 
@@ -237,7 +237,7 @@ def build_html(model: Dict[str, str], content: str, history: Dict[str, Any], dat
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>思维格栅周报</title>
+<title>思维格栅日报</title>
 </head>
 <body style="margin:0;padding:0;background-color:#f1f5f9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;">
 
@@ -248,8 +248,8 @@ def build_html(model: Dict[str, str], content: str, history: Dict[str, Any], dat
 <tr>
 <td style="background:linear-gradient(135deg,#1e3a5f 0%,#0f172a 100%);padding:40px 36px;text-align:center;">
 <div style="font-size:14px;letter-spacing:3px;color:rgba(255,255,255,0.7);margin-bottom:8px;">第 {week} 期 · {date_str}</div>
-<h1 style="margin:0;font-size:30px;font-weight:800;color:#ffffff;">🧠 思维格栅周报</h1>
-<div style="margin-top:10px;font-size:15px;color:rgba(255,255,255,0.65);">每周拆解一个经典思维模型 · 构建你的多元思维框架</div>
+<h1 style="margin:0;font-size:30px;font-weight:800;color:#ffffff;">🧠 思维格栅日报</h1>
+<div style="margin-top:10px;font-size:15px;color:rgba(255,255,255,0.65);">每天拆解一个经典思维模型 · 构建你的多元思维框架</div>
 </td>
 </tr>
 
@@ -272,8 +272,8 @@ def build_html(model: Dict[str, str], content: str, history: Dict[str, Any], dat
 <tr>
 <td style="background-color:#f8fafc;padding:24px 32px;text-align:center;border-top:1px solid #e5e7eb;">
 <div style="font-size:13px;color:#9ca3af;line-height:1.8;">
-思维格栅周报 &bull; 第 {week} 期 &bull; {date_str}<br>
-每周一 7:00 AM 自动推送 &bull; 内容由 DeepSeek 生成<br>
+思维格栅日报 &bull; 第 {week} 期 &bull; {date_str}<br>
+每天 7:00 AM 自动推送 &bull; 内容由 DeepSeek 生成<br>
 <span style="color:#d1d5db;">持续积累思维模型，构建认知护城河。</span>
 </div>
 </td>
@@ -290,7 +290,7 @@ def build_html(model: Dict[str, str], content: str, history: Dict[str, Any], dat
 
 def send_email(html: str, model_name: str, date_str: str) -> None:
     msg = MIMEMultipart("alternative")
-    msg["Subject"] = Header(f"🧠 思维格栅周报：{model_name} — {date_str}", "utf-8")
+    msg["Subject"] = Header(f"🧠 思维格栅日报：{model_name} — {date_str}", "utf-8")
     msg["From"] = f"Mental Models Weekly <{os.environ['SENDER_EMAIL']}>"
     msg["To"] = os.environ["RECIPIENT_EMAIL"]
     msg.attach(MIMEText(html, "html", "utf-8"))
